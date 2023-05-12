@@ -9,7 +9,14 @@ function GuessWhoBoard({ characters }) {
             setSelectedCharacter(character);
         } else {
             const characterName = document.getElementsByClassName(character.name);
-            characterName[0].src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/1200px-Red_X.svg.png";
+            if (character.flipped === false) {
+                characterName[0].src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/1200px-Red_X.svg.png";
+                character.flipped = true
+            } else {
+                characterName[0].src = character.image;
+                character.flipped = false
+            }
+
         }
     };
 
