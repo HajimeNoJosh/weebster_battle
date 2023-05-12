@@ -28,8 +28,8 @@ function GuessWhoBoard({ characters }) {
                     <div className="selected">
                         <h3>Selected Character</h3>
                         <div className="character">
-                            <img src={selectedCharacter.image} alt={selectedCharacter.name} />
-                            <p>{selectedCharacter.name}</p>
+                            <img src={selectedCharacter.image.large} alt={selectedCharacter.name.full} />
+                            <p>{selectedCharacter.name.full}</p>
                         </div>
                         {selectedCharacter && !confirmDone ? <button onClick={() => setConfirmDone(true)}>Confirm</button> : <span></span>}
                     </div>
@@ -37,10 +37,10 @@ function GuessWhoBoard({ characters }) {
             }
             <div className="board">
                 {characters.map((character) => (
-                    <div key={character.name} className="row">
+                    <div key={character.id} className="row">
                         <div className="character" onClick={() => handleClick(character)}>
-                            <img className={character.name} src={character.image} alt={character.name} />
-                            <p>{character.name}</p>
+                            <img className={character.name.full} src={character.image.large} alt={character.name.full} />
+                            <p>{character.name.full}</p>
                         </div>
                     </div>
                 ))}
