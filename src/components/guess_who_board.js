@@ -5,16 +5,19 @@ function GuessWhoBoard({ characters }) {
     const [confirmDone, setConfirmDone] = useState(false);
 
     const handleClick = (character) => {
+
+        console.log(character.flipped)
+
         if (confirmDone === false) {
             setSelectedCharacter(character);
         } else {
-            const characterName = document.getElementsByClassName(character.name);
-            if (character.flipped === false) {
-                characterName[0].src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/1200px-Red_X.svg.png";
+            const characterName = document.getElementsByClassName(character.name.full);
+            if (character.flipped === false || character.flipped === undefined) {
                 character.flipped = true
-            } else {
-                characterName[0].src = character.image;
+                characterName[0].src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/1200px-Red_X.svg.png";
+            } else if (character.flipped === true) {
                 character.flipped = false
+                characterName[0].src = character.image.large;
             }
 
         }
