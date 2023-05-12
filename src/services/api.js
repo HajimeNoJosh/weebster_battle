@@ -1,5 +1,5 @@
 export async function APICall(setStateObj) {
-    const query = `
+  const query = `
       query ($page: Int, $perPage: Int) {
         Page(page: $page, perPage: $perPage) {
           characters (isBirthday: true) {
@@ -25,39 +25,39 @@ export async function APICall(setStateObj) {
       }
     `;
 
-    const variables = {
-        isBirthday: true,
-        page: 1,
-        perPage: 24, // Specify the number of characters you want to fetch
-    };
+  const variables = {
+    isBirthday: true,
+    page: 1,
+    perPage: 24, // Specify the number of characters you want to fetch
+  };
 
-    const url = 'https://graphql.anilist.co';
+  const url = 'https://graphql.anilist.co';
 
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-        },
-        body: JSON.stringify({
-            query: query,
-            variables: variables,
-        }),
-    };
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+    body: JSON.stringify({
+      query: query,
+      variables: variables,
+    }),
+  };
 
-    function handleResponse(response) {
-        return response.json().then(function (json) {
-            return response.ok ? json : Promise.reject(json.errors[0].message);
-        });
-    }
+  function handleResponse(response) {
+    return response.json().then(function (json) {
+      return response.ok ? json : Promise.reject(json.errors[0].message);
+    });
+  }
 
-    async function handleData(data) {
-        const characters = data.data.Page.characters;
-        setStateObj((prevState) => ({
-            ...prevState,
-            characters: [...characters],
-        }));
-    }
+  async function handleData(data) {
+    const characters = data.data.Page.characters;
+    setStateObj((prevState) => ({
+      ...prevState,
+      characters: [...characters],
+    }));
+  }
 
-    await fetch(url, options).then(handleResponse).then(handleData);
+  await fetch(url, options).then(handleResponse).then(handleData);
 }
