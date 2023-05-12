@@ -1,11 +1,11 @@
 import { characters } from './components/characters';
 import GuessWhoBoard from './components/guess_who_board';
-import './App.css';
+import "./sass/main.scss";
 
 function App() {
 
   return (
-    <div className="App">
+    <div className="app">
       <GuessWhoBoard characters={characters} />
     </div>
   );

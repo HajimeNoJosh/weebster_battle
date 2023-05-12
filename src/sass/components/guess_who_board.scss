@@ -1,28 +1,12 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 .flipped{
   /* display: none; */
   width: 10px;
-height: 20px;
+  height: 20px;
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/1200px-Red_X.svg.png");
   content: "";
   z-index: 3;
 }
 
-.flipped:before {
-
-}
 .selected {
   display: flex;
   flex-direction: column;
@@ -32,8 +16,8 @@ height: 20px;
 .board {
   display: flex;
   flex-wrap: wrap;
-  width: 960px;
   margin: 0 auto;
+  justify-content: center;
 }
 
 .row {

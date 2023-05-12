@@ -21,7 +21,7 @@ function GuessWhoBoard({ characters }) {
     };
 
     return (
-        <div>
+        <div className='page'>
             <h2>Guess Who Board</h2>
             {
                 selectedCharacter && (
