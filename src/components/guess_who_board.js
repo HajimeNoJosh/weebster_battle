@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import Button from './button';
+import SelectedCharacter from './selected_character';
+import Board from './board';
+import Subtitle from './subtitle';
+import Title from './title';
 
 function GuessWhoBoard({ characters }) {
     const [selectedCharacter, setSelectedCharacter] = useState(null);
@@ -22,31 +25,10 @@ function GuessWhoBoard({ characters }) {
 
     return (
         <div className='page'>
-            <h1>Weebster Battle</h1>
-            {!selectedCharacter ? <h2>Please select your character!</h2> : !confirmDone ? <h2>Confirm your character and begin the game!</h2> : <h2>Have fun!</h2>}
-            {
-                selectedCharacter && (
-                    <div className="selected">
-                        <h3>Selected Character</h3>
-                        <div className="character">
-                            <img src={selectedCharacter.image.large} alt={selectedCharacter.name.full} />
-                            <p>{selectedCharacter.name.full}</p>
-                        </div>
-                        {selectedCharacter && !confirmDone ? <Button onClick={() => setConfirmDone(true)}>Confirm</Button> : <span></span>}
-                    </div>
-                )
-            }
-            <div className="board">
-                {characters.map((character) => (
-                    <div key={character.id} className="row">
-                        <div className={"character character-" + character.id} onClick={() => handleClick(character)}>
-                            <img className={character.id} src={character.image.large} alt={character.name.full} />
-                            <p>{character.name.full}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
+            <Title text={"Weebster Battle"} />
+            <Subtitle selectedCharacter={selectedCharacter} confirmDone={confirmDone} />
+            <SelectedCharacter selectedCharacter={selectedCharacter} confirmDone={confirmDone} setConfirmDone={setConfirmDone} />
+            <Board characters={characters} handleClick={handleClick} />
         </div >
     );
 }

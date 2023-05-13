@@ -1,6 +1,5 @@
 function Button(props) {
     return (
-
         <button onClick={props.onClick} className="button grey">
             <div className="icon">
                 <div className="cannon"></div>
