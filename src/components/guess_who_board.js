@@ -27,7 +27,7 @@ function GuessWhoBoard({ characters }) {
     return (
         <div className='page'>
             <h1>Weebster Battle</h1>
-            {!selectedCharacter ? <h2>Please select your character!</h2> : <h2>Confirm your character and begin the game!</h2>}
+            {!selectedCharacter ? <h2>Please select your character!</h2> : !confirmDone ? <h2>Confirm your character and begin the game!</h2> : <h2>Have fun!</h2>}
             {
                 selectedCharacter && (
                     <div className="selected">
