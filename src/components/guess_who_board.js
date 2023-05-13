@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Button from './button';
 
 function GuessWhoBoard({ characters }) {
     const [selectedCharacter, setSelectedCharacter] = useState(null);
@@ -25,7 +26,8 @@ function GuessWhoBoard({ characters }) {
 
     return (
         <div className='page'>
-            <h2>Guess Who Board</h2>
+            <h1>Weebster Battle</h1>
+            {!selectedCharacter ? <h2>Please select your character!</h2> : <h2>Confirm your character and begin the game!</h2>}
             {
                 selectedCharacter && (
                     <div className="selected">
@@ -34,7 +36,7 @@ function GuessWhoBoard({ characters }) {
                             <img src={selectedCharacter.image.large} alt={selectedCharacter.name.full} />
                             <p>{selectedCharacter.name.full}</p>
                         </div>
-                        {selectedCharacter && !confirmDone ? <button onClick={() => setConfirmDone(true)}>Confirm</button> : <span></span>}
+                        {selectedCharacter && !confirmDone ? <Button onClick={() => setConfirmDone(true)}>Confirm</Button> : <span></span>}
                     </div>
                 )
             }
