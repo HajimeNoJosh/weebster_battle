@@ -16,10 +16,10 @@ function Board({ characters, handleClick }) {
                         </div>
                     </div>
                 )) :
-                    rows.map((character) => (
-                        <div key={character.id} className="row">
+                    rows.map((id) => (
+                        <div key={id} className="row">
                             <div className={"character"}>
-                                <img src="clouds.gif" alt="filler" />
+                                <img src="gradient.gif" alt="filler" />
                                 <p>Characters Name</p>
                             </div>
                         </div>
