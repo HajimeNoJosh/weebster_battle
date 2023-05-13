@@ -12,13 +12,13 @@ function GuessWhoBoard({ characters }) {
         if (confirmDone === false) {
             setSelectedCharacter(character);
         } else {
-            const characterName = document.getElementsByClassName(character.name.full);
+            const characterName = document.getElementsByClassName("character-" + character.name.full);
             if (character.flipped === false || character.flipped === undefined) {
                 character.flipped = true
-                characterName[0].src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Red_X.svg/1200px-Red_X.svg.png";
+                characterName[0].classList.add("character-flipped");
             } else if (character.flipped === true) {
                 character.flipped = false
-                characterName[0].src = character.image.large;
+                characterName[0].classList.remove("character-flipped");
             }
 
         }
@@ -43,7 +43,7 @@ function GuessWhoBoard({ characters }) {
             <div className="board">
                 {characters.map((character) => (
                     <div key={character.id} className="row">
-                        <div className="character" onClick={() => handleClick(character)}>
+                        <div className={"character character-" + character.name.full} onClick={() => handleClick(character)}>
                             <img className={character.name.full} src={character.image.large} alt={character.name.full} />
                             <p>{character.name.full}</p>
                         </div>

@@ -27,6 +27,7 @@
 
 .row {
   display: flex;
+
 }
 
 .character {
@@ -34,6 +35,12 @@
   height: 150px;
   margin: 5px;
   position: relative;
+  &-flipped::after {
+    content: url("https://upload.wikimedia.org/wikipedia/commons/5/5f/Red_X.svg");
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
 }
 
 .character img {
