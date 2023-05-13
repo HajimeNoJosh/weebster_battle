@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className="app">
-      {stateObj.characters.length > 0 ? <GuessWhoBoard characters={stateObj.characters} /> : <div>loading...</div>}
+      <GuessWhoBoard characters={stateObj.characters} />
       {showButton && (
         <div className='scrollToTop'>
           <button className='p-4' onClick={handleScrollToTop}
