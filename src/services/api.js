@@ -1,8 +1,8 @@
 export async function APICall(setStateObj) {
   const query = `
-      query ($page: Int, $perPage: Int) {
+      query ($page: Int, $perPage: Int, $isBirthday: Boolean) {
         Page(page: $page, perPage: $perPage) {
-          characters (isBirthday: true) {
+          characters (isBirthday: $isBirthday) {
             id
             name {
               full
