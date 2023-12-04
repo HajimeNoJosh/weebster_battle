@@ -8,7 +8,8 @@ export async function APICall(setStateObj) {
               full
             }
             image {
-              large
+              large,
+              medium,    
             }
             description
             media {
@@ -28,7 +29,7 @@ export async function APICall(setStateObj) {
   const variables = {
     isBirthday: true,
     page: 1,
-    perPage: 24, // Specify the number of characters you want to fetch
+    perPage: 40, // Specify the number of characters you want to fetch
   };
 
   const url = 'https://graphql.anilist.co';
@@ -53,9 +54,11 @@ export async function APICall(setStateObj) {
 
   async function handleData(data) {
     const characters = data.data.Page.characters;
+    let results = characters.filter((character) => character.image.large !== "https://s4.anilist.co/file/anilistcdn/character/large/default.jpg")
+    results = results.slice(0, 24);
     setStateObj((prevState) => ({
       ...prevState,
-      characters: [...characters],
+      characters: [...results],
     }));
   }
 

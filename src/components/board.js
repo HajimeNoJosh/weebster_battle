@@ -15,7 +15,6 @@ function Board({ characters, handleClick }) {
                             <div data-tooltip-id="my-tooltip" data-tooltip-content={animeTitle} className={"character character-information character-" + character.id} onClick={() => handleClick(character)}>
                                 <img className={character.id} src={character.image.large} alt={character.name.full} />
                                 <p>{character.name.full}</p>
-
                             </div>
 
                         </div>
