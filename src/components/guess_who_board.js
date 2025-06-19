@@ -3,6 +3,7 @@ import SelectedCharacter from './selected_character';
 import Board from './board';
 import Subtitle from './subtitle';
 import Title from './title';
+import { Tooltip } from 'react-tooltip'
 
 function GuessWhoBoard({ characters }) {
     const [selectedCharacter, setSelectedCharacter] = useState(null);
@@ -29,6 +30,7 @@ function GuessWhoBoard({ characters }) {
             <Subtitle selectedCharacter={selectedCharacter} confirmDone={confirmDone} />
             <SelectedCharacter selectedCharacter={selectedCharacter} confirmDone={confirmDone} setConfirmDone={setConfirmDone} />
             <Board characters={characters} handleClick={handleClick} />
+            <Tooltip id="my-tooltip" />
         </div >
     );
 }
